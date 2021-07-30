@@ -1,0 +1,140 @@
+/* Autocomplete */
+.autocomplete-items {
+  position: absolute;
+  border-top: 1px solid #d4d4d4;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9;
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
+.autocomplete-dropdown-arrow{
+  position: absolute;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 7px solid black;
+  display: inline-block;
+  top: calc(50% - 3px);
+  right: 24px;
+  cursor: pointer;
+}
+.autocomplete-dropdown-dash{
+  position: absolute;
+  border-top: 2px solid black;
+  display: inline-block;
+  top: calc(50% - 1px);
+  right: 24px;
+  width: 12px;
+}
+.autocomplete-dropdown-arrow:hover{
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 7px solid #00a2d7;
+}
+
+.zipcode-form .form-grp.loader-active::before, .row > .form-grp.loader-active::after{
+    box-sizing: inherit;
+    content: '';
+    position: absolute;
+    width: 0;
+    top: 0;
+    left: 15px;
+}
+
+.zipcode-form .form-grp.loader-active::before{
+    border-top: 2px solid #0070ba;
+    animation: zipcheck_loader 2s ease-in-out infinite;
+}
+.zipcode-form .form-grp.loader-active::after{
+    border-top: 2px solid #d3e7f3;
+    animation: zipcheck_loader 2s ease 0.4s infinite;
+}
+
+@keyframes zipcheck_loader {
+	0% {
+		width: 0;
+    }
+    25%{
+        width: 0;
+    }
+    75%{
+        width: calc(100% - 30px);
+    }
+	100% {
+		width: calc(100% - 30px);
+	}
+}
+
+/* Loading spinner */
+.postcode-result-box.spinner-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.circular {
+  animation: rotate 2s linear infinite;
+  height: 100px;
+  position: relative;
+  width: 100px;
+}
+
+.path {
+  stroke-dasharray: 1,200;
+  stroke-dashoffset: 0;
+  animation: dash 1.5s ease-in-out infinite;
+  stroke-linecap: round;
+  stroke: #0070ba;;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1,200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89,200;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 89,200;
+    stroke-dashoffset: -124;
+  }
+}
+
+/* Transform input to uppercase */
+form.zipcode-form input:not(:placeholder-shown)[type="text"]{
+  text-transform: uppercase;
+}
+
+form.zipcode-form input[type="text"]{
+  height: 60px;
+  border-top: 2px solid #d3e7f3; 
+  font-size: 20px; 
+  color: #4b4b49; 
+  background-color: #fff;
+  width: 100%;
+}
+
+form.zipcode-form .form-grp{
+  position: relative;
+}
